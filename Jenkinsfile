@@ -19,12 +19,12 @@ pipeline {
       }
       stage('Build') {
          steps {
-            sh "cd spring-petclinic && mvn compile"
+            sh "mvn compile"
          }  
       }
       stage('Test') {
          steps {
-            sh "cd cd spring-petclinic && mvn test"
+            sh "mvn test"
            }
       }
    }
