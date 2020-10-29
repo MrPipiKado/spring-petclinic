@@ -1,4 +1,9 @@
 pipeline {
+    environment { 
+        registry = "mrpipikado/final" 
+        registryCredential = 'docker' 
+        dockerImage = '' 
+    }
    agent {
      node {
         label 'slave'
@@ -38,5 +43,14 @@ pipeline {
            sh "docker tag final:${BUILD_NUMBER} mrpipikado/final:latest"
           }
       }
+      stage('Deploy image') { 
+            steps { 
+                script { 
+                    docker.withRegistry( '', registryCredential ) { 
+                        dockerImage.push() 
+                    }
+                } 
+            }
+        } 
    }
 }
