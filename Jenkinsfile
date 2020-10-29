@@ -12,7 +12,9 @@ pipeline {
    stages {  
       stage('Clone'){
           steps{  
-              git credentialsId: 'GitHub', url: 'git@github.com:MrPipiKado/spring-petclinic.git'
+              git branch: 'test',
+                credentialsId: 'GitHub',
+                url: 'ssh://git@github.com:MrPipiKado/spring-petclinic.git'
           }
       }
       stage('Build') {
