@@ -1,5 +1,9 @@
 pipeline {
-   agent slave
+   agent {
+     node {
+        label 'master'
+     }
+   }
 
    tools {
       maven "Maven"   
