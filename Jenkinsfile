@@ -14,7 +14,7 @@ pipeline {
           steps{  
               git branch: 'test',
                 credentialsId: 'GItHub',
-                url: 'ssh://git@github.com:MrPipiKado/spring-petclinic.git'
+                url: 'git@github.com:MrPipiKado/spring-petclinic.git'
           }
       }
       stage('Build') {
