@@ -38,10 +38,9 @@ pipeline {
           }
       }
       stage('build docker image') {
-         steps {
-           sh "docker build -t final:${BUILD_NUMBER} ."
-           sh "docker tag final:${BUILD_NUMBER} mrpipikado/final:latest"
-          }
+          script { 
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+                }
       }
       stage('Deploy image') { 
             steps { 
