@@ -53,5 +53,10 @@ pipeline {
                 } 
             }
         } 
+       stage ("triger deploy job") {		//an arbitrary stage name
+            steps {
+                build 'kubernetes stage'	//this is where we specify which job to invoke.
+            }
+        }
    }
 }
