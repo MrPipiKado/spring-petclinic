@@ -1,3 +1,5 @@
+properties([pipelineTriggers([githubPush()])])
+
 pipeline {
    triggers {
     pollSCM('H/2 * * * *')
