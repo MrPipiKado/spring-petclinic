@@ -1,7 +1,6 @@
+properties([pipelineTriggers([githubPush()])])
+
 pipeline {
-    triggers {
-    pollSCM('H/2 * * * *')
-  }
     environment { 
         registry = "mrpipikado/final_project" 
         registryCredential = 'docker' 
